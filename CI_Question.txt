@@ -1,0 +1,13 @@
+We might have to modify the previously created files, for example because of a new Nexus version. We
+want this to automatically be deployed to a test environment after we have made the changes on Git.
+Please describe in a few words how you would satisfy this need.
+
+######################################################################################################
+
+Firstly, it would be necessary to alter the entry in the dockerfile and make any other alterations that may
+be required of a new version, such as possible port changes etc. 
+Next, a cicd tool such as jenkins would be used to monitor the repo for changes either via polling or utilising
+webhooks allowing triggers on push for instance. The triggered build that would then create a new verison of the docker
+image and push to a docker registry (artifactory, ECR etc.) Jenkins then deploys the updated configuration files 
+(including the new image tag) to the test environment using something to the effect of 
+kubectl set image deployment/nexus-deployment nexus=my-nexus-image:<new-image-tag> 
