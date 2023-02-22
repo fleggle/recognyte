@@ -15,21 +15,21 @@ To deploy the Nexus application, follow these steps:
 
 1. Clone this repository to your local machine:
 
-``git clone <repository-url>
+`git clone <repository-url>`
 
 2. If you are using a templating tool such as Helm or Kustomize, modify the YAML configuration files to fit your use case.
 
 3. Build the Nexus Docker image with the Cloud Storage plugin installed. For example, using the `Dockerfile` in this repository:
 
-``docker build -t my-nexus-image .
+`docker build -t my-nexus-image .`
 
 4. Push the Docker image to your container registry:
 
-``docker push <registry-url>/my-nexus-image:<image-tag>
+`docker push <registry-url>/my-nexus-image:<image-tag>`
 
 5. Apply the Kubernetes configuration using `kubectl apply`:
 
-``kubectl apply -f <path-to-yaml-file>
+`kubectl apply -f <path-to-yaml-file>`
 
 This will create a Nexus Deployment, Service, Persistent Volume, and Persistent Volume Claim in your Kubernetes cluster. The Nexus application will be accessible at the external IP address of the LoadBalancer service created by the deployment.
 
@@ -43,7 +43,7 @@ To update the Nexus application, follow these steps:
 
 3. Update the image tag of the `nexus` container in the Nexus Deployment using `kubectl set image`:
 
-``kubectl set image deployment/nexus-deployment nexus=<registry-url>/my-nexus-image:<new-image-tag>
+`kubectl set image deployment/nexus-deployment nexus=<registry-url>/my-nexus-image:<new-image-tag>`
 
 This will update the Nexus Deployment to use the new Docker image with the specified image tag.
 
