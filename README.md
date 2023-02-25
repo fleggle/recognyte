@@ -46,8 +46,3 @@ To update the Nexus application, follow these steps:
 `kubectl set image deployment/nexus-deployment nexus=<registry-url>/my-nexus-image:<new-image-tag>`
 
 This will update the Nexus Deployment to use the new Docker image with the specified image tag.
-
-I hope this helps! Let me know if you have any other questions.
-
-
-
